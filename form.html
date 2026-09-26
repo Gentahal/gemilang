@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Form Create Project - GEMILANG Enterprise Portal" />
+    <title>Buat Proyek Baru - GEMILANG</title>
+</head>
+
+<body>
+    <main>
+        <article>
+            <header>
+                <div>
+                    <svg width="44" height="44" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M7 2H17V12H7V2M7 12V22H17V12H7" stroke="currentColor" stroke-width="2"
+                            stroke-linejoin="round" />
+                    </svg>
+                    <div>
+                        <h1>Buat Proyek Baru</h1>
+                        <span>PRJ-015</span>
+                        <p>Lengkapi parameter proyek, alokasi manajer, dan aktifkan asisten AI GEMILANG.</p>
+                    </div>
+                </div>
+                <button type="button" aria-label="Tutup modal">✕</button>
+            </header>
+
+            <form id="createProjectForm">
+
+                <section>
+                    <h2>1. Identitas & Deskripsi Proyek</h2>
+                    <p>* Wajib diisi</p>
+
+                    <div>
+                        <div>
+                            <label for="projectName">Nama Proyek Resmi <span aria-label="wajib">*</span></label>
+                            <input type="text" id="projectName" name="projectName"
+                                placeholder="contoh: Revitalisasi Portal Single Sign-On Multi-Tenant" required
+                                value="Revitalisasi Portal Single Sign-On Multi-Tenant" />
+                        </div>
+
+                        <div>
+                            <label for="projectCode">ID / Kode Proyek (Auto)</label>
+                            <div>
+                                <span>PRJ</span>
+                                <span>/</span>
+                                <input type="text" id="projectCode" name="projectCode" readonly value="2025-015" />
+                                <span title="ID Unik Tersedia">✓</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label for="projectDesc">Deskripsi & Ruang Lingkup Proyek</label>
+                        <button type="button" id="btnGenerateAI" onclick="simulateAIGenerateDesc()">
+                            ✨ Buat Deskripsi Otomatis dengan AI
+                        </button>
+                        <textarea id="projectDesc" name="projectDesc"
+                            placeholder="Deskripsikan latar belakang inisiatif, target penerima manfaat, dan batasan implementasi sistem..."
+                            rows="4">Implementasi standardisasi otentikasi identitas digital berbasis OAuth2/OIDC terintegrasi ke layanan mikro seluruh unit GEMILANG guna mewujudkan arsitektur Zero Trust.</textarea>
+                    </div>
+                </section>
+
+                <section>
+                    <h2>2. Struktur Kepemimpinan & Anggota Tim</h2>
+
+                    <div>
+                        <div>
+                            <label for="projectManager">Penanggung Jawab (Project Manager) <span
+                                    aria-label="wajib">*</span></label>
+                            <span>Utama</span>
+                            <select id="projectManager" name="projectManager" required>
+                                <option value="sarah_maharani" selected>Sarah Maharani, PMP® - Lead Project Manager
+                                    (PMO)</option>
+                                <option value="bambang_wicaksono">Bambang Wicaksono, M.T. - CTO</option>
+                                <option value="ratna_kusuma">Ratna Kusuma Dewi, PMP - VP Engineering</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label for="teamMembers">Anggota Tim Inti Terpilih</label>
+                            <span id="teamCountBadge">3 Anggota</span>
+
+                            <fieldset>
+                                <legend>Pilih anggota tim</legend>
+
+                                <div>
+                                    <input type="checkbox" id="member_fp" name="teamMembers" value="fajar_p" checked />
+                                    <label for="member_fp">
+                                        <span>FP</span>
+                                        <span>Fajar P. (Infra)</span>
+                                    </label>
+                                    <button type="button" aria-label="Hapus Fajar P">✕</button>
+                                </div>
+
+                                <div>
+                                    <input type="checkbox" id="member_ra" name="teamMembers" value="rizky_a" checked />
+                                    <label for="member_ra">
+                                        <span>RA</span>
+                                        <span>Rizky A. (Backend)</span>
+                                    </label>
+                                    <button type="button" aria-label="Hapus Rizky A">✕</button>
+                                </div>
+
+                                <div>
+                                    <input type="checkbox" id="member_mw" name="teamMembers" value="maya_w" checked />
+                                    <label for="member_mw">
+                                        <span>MW</span>
+                                        <span>Maya W. (QA)</span>
+                                    </label>
+                                    <button type="button" aria-label="Hapus Maya W">✕</button>
+                                </div>
+
+                                <button type="button">
+                                    + Tambah Anggota
+                                </button>
+                            </fieldset>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h2>3. Prioritas, Kategori & Target Sprint</h2>
+
+                    <div>
+                        <div>
+                            <fieldset>
+                                <legend>Tingkat Prioritas Proyek</legend>
+
+                                <div>
+                                    <input type="radio" id="priority_urgent" name="priority" value="urgent" />
+                                    <label for="priority_urgent">
+                                        <span>●</span>
+                                        <span>Urgent</span>
+                                    </label>
+                                </div>
+
+                                <div>
+                                    <input type="radio" id="priority_high" name="priority" value="high" checked />
+                                    <label for="priority_high">
+                                        <span>●</span>
+                                        <span>High</span>
+                                    </label>
+                                </div>
+
+                                <div>
+                                    <input type="radio" id="priority_medium" name="priority" value="medium" />
+                                    <label for="priority_medium">
+                                        <span>●</span>
+                                        <span>Medium</span>
+                                    </label>
+                                </div>
+
+                                <div>
+                                    <input type="radio" id="priority_low" name="priority" value="low" />
+                                    <label for="priority_low">
+                                        <span>●</span>
+                                        <span>Low</span>
+                                    </label>
+                                </div>
+                            </fieldset>
+                        </div>
+
+                        <div>
+                            <label for="projectCategory">Kategori Portofolio</label>
+                            <select id="projectCategory" name="projectCategory">
+                                <option value="cloud_sso" selected>Cloud Infra & Single Sign-On</option>
+                                <option value="govtech">GovTech Platform & Layanan Publik</option>
+                                <option value="microservices">Microservices & API Integration</option>
+                                <option value="security">Cyber Security & ISO 27001 Audit</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div>
+                            <label for="startDate">Tanggal Mulai</label>
+                            <input type="date" id="startDate" name="startDate" value="2025-04-01" />
+                        </div>
+
+                        <div>
+                            <label for="endDate">Target Peluncuran</label>
+                            <input type="date" id="endDate" name="endDate" value="2025-06-30" />
+                        </div>
+
+                        <div>
+                            <label for="sprintCount">Target Sprint</label>
+                            <input type="number" id="sprintCount" name="sprintCount" min="1" max="24" value="6" />
+                            <span>Sprint</span>
+                        </div>
+
+                        <div>
+                            <label for="manDays">Estimasi Beban</label>
+                            <input type="number" id="manDays" name="manDays" min="5" max="500" value="120" />
+                            <span>MD</span>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h2>4. Opsi Otomasi & Ekosistem GEMILANG</h2>
+                    <span>Smart Features</span>
+
+                    <div>
+                        <div>
+                            <div>🌳</div>
+                            <div>
+                                <strong>Aktifkan Rekomendasi Cerdas AI GEMILANG</strong>
+                                <p>Generate otomatis WBS, sub-tugas Kanban, dan deteksi potensi bottleneck sprint.</p>
+                            </div>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="aiDecomposition" name="aiDecomposition" checked />
+                            <label for="aiDecomposition">Aktifkan</label>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div>
+                            <div>🔌</div>
+                            <div>
+                                <strong>Koneksi NestJS Webhook & Notifikasi Real-time</strong>
+                                <p>Stream commit repositori GitLab & CI/CD pipeline ke timeline log proyek.</p>
+                            </div>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="nestjsWebhook" name="nestjsWebhook" checked />
+                            <label for="nestjsWebhook">Aktifkan</label>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div>
+                            <div>☁️</div>
+                            <div>
+                                <strong>Integrasi Widget Cuaca Maritim / Geo-Weather API</strong>
+                                <p>Kompensasi estimasi survei teknis lapangan berdasarkan prakiraan cuaca maritim
+                                    Jakarta.</p>
+                            </div>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="weatherApi" name="weatherApi" />
+                            <label for="weatherApi">Aktifkan</label>
+                        </div>
+                    </div>
+                </section>
+
+                <aside id="aiSuccessAlert" hidden>
+                    <p>← AI merekomendasikan 4 milestone standar industri untuk cakupan SSO multi-tenant.</p>
+                    <button type="button" onclick="this.parentElement.hidden = true">✕</button>
+                </aside>
+
+                <footer>
+                    <div>
+                        <button type="button" onclick="closeModal()">
+                            Batal
+                        </button>
+                        <button type="button" onclick="saveDraft()">
+                            💾 Simpan Draf
+                        </button>
+                    </div>
+                    <div>
+                        <button type="submit" id="btnSubmitProject">
+                            🚀 ✨ Buat & Inisialisasi Proyek
+                        </button>
+                    </div>
+                </footer>
+            </form>
+        </article>
+
+        <div id="projectToast" hidden>
+            <div>✓</div>
+            <div>
+                <strong id="toastTitle">Proyek Dibuat</strong>
+                <p id="toastDesc">PRJ-015 berhasil dikonfigurasi.</p>
+            </div>
+        </div>
+    </main>
+
+</body>
+
+</html>
