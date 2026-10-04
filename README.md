@@ -1,16 +1,13 @@
 # Gemilang
 
 ## 📸 Dokumentasi Screenshot
-Berikut adalah preview week 1
+Berikut adalah preview week 3
 
 ### 1. Tampilan Utama (Satu)
-![Satu](assets/screenshot/satu.png)
+![Satu](assets/screenshot/week-3/satu.png)
 
 ### 2. Tampilan Kedua (Dua)
-![Dua](assets/screenshot/dua.png)
+![Dua](assets/screenshot/week-3/dua.png)
 
 ### 3. Tampilan Ketiga (Tiga)
-![Tiga](assets/screenshot/tiga.png)
-
-### 4. Tampilan Keempat (Empat)
-![Empat](assets/screenshot/empat.png)
+![Tiga](assets/screenshot/week-3/tiga.png)
