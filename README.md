@@ -3,11 +3,8 @@
 ## 📸 Dokumentasi Screenshot
 Berikut adalah preview week 3
 
-### 1. Tampilan Utama (Satu)
-![Satu](assets/screenshot/week-3/satu.png)
+### 1. Tampilan Satu
+![Satu](assets/screenshot/week-3/dua.png)
 
-### 2. Tampilan Kedua (Dua)
-![Dua](assets/screenshot/week-3/dua.png)
-
-### 3. Tampilan Ketiga (Tiga)
-![Tiga](assets/screenshot/week-3/tiga.png)
+### 2. Tampilan Dua
+![Dua](assets/screenshot/week-3/tiga.png)
