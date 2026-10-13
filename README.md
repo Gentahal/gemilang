@@ -1,4 +1,3 @@
-
 # GEMILANG
 ### Gerbang Manajemen dan Integrasi Langkah Kerja
 
@@ -9,6 +8,14 @@ GEMILANG adalah aplikasi **Project Management System berbasis web** yang diranca
 Aplikasi ini memungkinkan pengguna untuk membuat proyek, membagi tugas kepada anggota tim, menentukan prioritas dan deadline, serta memantau perkembangan pekerjaan melalui dashboard dan Kanban Board.
 
 GEMILANG juga dirancang dengan integrasi Artificial Intelligence (AI) untuk membantu proses perencanaan dan pengelolaan pekerjaan agar menjadi lebih efektif.
+
+---
+
+## Screenshot UI
+
+![Screenshot 1](assets/screenshot/week-4/satu.png)
+![Screenshot 2](assets/screenshot/week-4/dua.png)
+![Screenshot 3](assets/screenshot/week-4/tiga.png)
 
 ---
 
