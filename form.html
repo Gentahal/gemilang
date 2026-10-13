@@ -6,277 +6,456 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Form Create Project - GEMILANG Enterprise Portal" />
     <title>Buat Proyek Baru - GEMILANG</title>
-    <link rel="stylesheet" href="/assets/style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
+                    colors: {
+                        brand: { 50: '#f0fdfa', 100: '#ccfbf1', 500: '#14b8a6', 700: '#0f766e', 800: '#115e59', 900: '#134e4a' },
+                        surface: '#f3f6f9',
+                        dark: '#1e293b'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom Toggle Switch */
+        .toggle-checkbox:checked {
+            right: 0;
+            border-color: #0f766e;
+        }
+
+        .toggle-checkbox:checked+.toggle-label {
+            background-color: #0f766e;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+    </style>
 </head>
 
-<body>
-    <main>
-        <article>
-            <header>
-                <div>
-                    <svg width="44" height="44" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M7 2H17V12H7V2M7 12V22H17V12H7" stroke="currentColor" stroke-width="2"
-                            stroke-linejoin="round" />
+<body class="bg-gray-100 text-gray-800 antialiased p-4 sm:p-8 flex justify-center items-start min-h-screen">
+
+    <main
+        class="w-full max-w-[1000px] bg-white rounded-[24px] shadow-2xl overflow-hidden relative border border-gray-100">
+
+        <!-- Header -->
+        <header class="px-8 py-6 flex items-center justify-between border-b border-gray-100">
+            <div class="flex items-center gap-4">
+                <div class="w-12 h-12 bg-brand-50 text-brand-700 rounded-2xl flex items-center justify-center">
+                    <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M9 13h6m-3-3v6m-9 1V7a2 2 0 012-2h6l2 2h6a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2z">
+                        </path>
                     </svg>
+                </div>
+                <div>
+                    <div class="flex items-center gap-3">
+                        <h1 class="text-xl font-bold text-gray-900">Buat Proyek Baru</h1>
+                        <span
+                            class="bg-[#ccfbf1] text-[#0f766e] px-2.5 py-0.5 rounded-md text-xs font-bold tracking-wide">PRJ-015</span>
+                    </div>
+                    <p class="text-sm text-gray-500 mt-0.5">Lengkapi parameter proyek, alokasi manajer, dan aktifkan
+                        asisten AI GEMILANG.</p>
+                </div>
+            </div>
+            <button type="button" aria-label="Tutup modal"
+                class="w-10 h-10 bg-gray-50 hover:bg-gray-100 text-gray-500 rounded-full flex items-center justify-center transition-colors">
+                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+        </header>
+
+        <form id="createProjectForm" class="p-8 space-y-10">
+
+            <!-- Section 1 -->
+            <section>
+                <div class="flex justify-between items-center mb-5">
+                    <div class="flex items-center gap-2 text-brand-700 font-semibold text-sm">
+                        <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2">
+                            </path>
+                        </svg>
+                        1. IDENTITAS & DESKRIPSI PROYEK
+                    </div>
+                    <span class="text-xs font-semibold text-gray-500">* Wajib diisi</span>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+                    <div class="md:col-span-2">
+                        <label class="block text-sm font-bold text-gray-700 mb-2">Nama Proyek Resmi <span
+                                class="text-red-500">*</span></label>
+                        <input type="text" value="Revitalisasi Portal Single Sign-On Multi-Tenant"
+                            class="w-full bg-surface px-4 py-3 rounded-xl border-none text-gray-800 focus:ring-2 focus:ring-brand-500 outline-none font-medium" />
+                    </div>
+
                     <div>
-                        <h1>Buat Proyek Baru</h1>
-                        <span>PRJ-015</span>
-                        <p>Lengkapi parameter proyek, alokasi manajer, dan aktifkan asisten AI GEMILANG.</p>
+                        <label class="block text-sm font-bold text-gray-700 mb-2">ID / Kode Proyek (Auto)</label>
+                        <div class="flex items-center bg-surface px-4 py-3 rounded-xl">
+                            <span class="text-gray-900 font-bold text-sm">PRJ / 2025-015</span>
+                            <div
+                                class="ml-auto w-5 h-5 rounded-full border-2 border-brand-500 text-brand-500 flex items-center justify-center">
+                                <svg width="12" height="12" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                    stroke-width="3">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <button type="button" aria-label="Tutup modal">✕</button>
-            </header>
 
-            <form id="createProjectForm">
-
-                <section>
-                    <h2>1. Identitas & Deskripsi Proyek</h2>
-                    <p>* Wajib diisi</p>
-
-                    <div>
-                        <div>
-                            <label for="projectName">Nama Proyek Resmi <span aria-label="wajib">*</span></label>
-                            <input type="text" id="projectName" name="projectName"
-                                placeholder="contoh: Revitalisasi Portal Single Sign-On Multi-Tenant" required
-                                value="Revitalisasi Portal Single Sign-On Multi-Tenant" />
-                        </div>
-
-                        <div>
-                            <label for="projectCode">ID / Kode Proyek (Auto)</label>
-                            <div>
-                                <span>PRJ</span>
-                                <span>/</span>
-                                <input type="text" id="projectCode" name="projectCode" readonly value="2025-015" />
-                                <span title="ID Unik Tersedia">✓</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div>
-                        <label for="projectDesc">Deskripsi & Ruang Lingkup Proyek</label>
-                        <button type="button" id="btnGenerateAI" onclick="simulateAIGenerateDesc()">
-                            ✨ Buat Deskripsi Otomatis dengan AI
+                <div>
+                    <div class="flex items-center justify-between mb-2">
+                        <label class="block text-sm font-bold text-gray-700">Deskripsi & Ruang Lingkup Proyek</label>
+                        <button type="button"
+                            class="bg-purple-100 text-purple-700 hover:bg-purple-200 transition-colors text-xs font-bold px-3 py-1.5 rounded-full flex items-center gap-1.5">
+                            <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z">
+                                </path>
+                            </svg>
+                            Buat Deskripsi Otomatis dengan AI
                         </button>
-                        <textarea id="projectDesc" name="projectDesc"
-                            placeholder="Deskripsikan latar belakang inisiatif, target penerima manfaat, dan batasan implementasi sistem..."
-                            rows="4">Implementasi standardisasi otentikasi identitas digital berbasis OAuth2/OIDC terintegrasi ke layanan mikro seluruh unit GEMILANG guna mewujudkan arsitektur Zero Trust.</textarea>
                     </div>
-                </section>
+                    <textarea rows="3"
+                        class="w-full bg-surface px-4 py-4 rounded-xl border-none text-gray-700 focus:ring-2 focus:ring-brand-500 outline-none text-sm leading-relaxed font-medium">Implementasi standardisasi otentikasi identitas digital berbasis OAuth2/OIDC terintegrasi ke layanan mikro seluruh unit GEMILANG guna mewujudkan arsitektur Zero Trust.</textarea>
+                </div>
+            </section>
 
-                <section>
-                    <h2>2. Struktur Kepemimpinan & Anggota Tim</h2>
+            <!-- Section 2 -->
+            <section>
+                <div class="flex items-center gap-2 text-brand-700 font-semibold text-sm mb-5">
+                    <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z">
+                        </path>
+                    </svg>
+                    2. STRUKTUR KEPEMIMPINAN & ANGGOTA TIM
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- PM Selector -->
+                    <div>
+                        <div class="flex justify-between items-end mb-2">
+                            <label class="block text-sm font-bold text-gray-700">Penanggung Jawab (Project Manager)
+                                <span class="text-red-500">*</span></label>
+                            <span class="text-xs font-bold text-brand-700">Utama</span>
+                        </div>
+                        <div
+                            class="w-full bg-surface px-3 py-2.5 rounded-xl flex items-center justify-between cursor-pointer border-2 border-transparent hover:border-gray-200">
+                            <div class="flex items-center gap-3">
+                                <img src="https://ui-avatars.com/api/?name=Sarah+Maharani&background=0D8ABC&color=fff&rounded=true"
+                                    alt="Avatar" class="w-10 h-10 rounded-full" />
+                                <div class="leading-tight">
+                                    <div class="text-sm font-bold text-gray-900">Sarah Maharani, PMP®</div>
+                                    <div class="text-xs text-gray-500 font-medium mt-0.5">Lead Project Manager (PMO)
+                                    </div>
+                                </div>
+                            </div>
+                            <svg width="20" height="20" class="text-gray-400" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M8 9l4-4 4 4m0 6l-4 4-4-4"></path>
+                            </svg>
+                        </div>
+                    </div>
+
+                    <!-- Team Members -->
+                    <div>
+                        <div class="flex justify-between items-end mb-3">
+                            <label class="block text-sm font-bold text-gray-700">Anggota Tim Inti Terpilih</label>
+                            <span class="text-xs font-medium text-gray-500">3 Anggota</span>
+                        </div>
+                        <div class="flex flex-wrap gap-2.5">
+                            <!-- Member 1 -->
+                            <div class="bg-surface rounded-full pl-1.5 pr-3 py-1 flex items-center gap-2">
+                                <div
+                                    class="w-6 h-6 rounded-full bg-emerald-600 text-white text-[10px] font-bold flex items-center justify-center">
+                                    FP</div>
+                                <span class="text-xs font-bold text-gray-700">Fajar P. (Infra)</span>
+                                <button type="button" class="text-gray-400 hover:text-gray-600"><svg width="14"
+                                        height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                        stroke-width="2">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12">
+                                        </path>
+                                    </svg></button>
+                            </div>
+                            <!-- Member 2 -->
+                            <div class="bg-surface rounded-full pl-1.5 pr-3 py-1 flex items-center gap-2">
+                                <div
+                                    class="w-6 h-6 rounded-full bg-slate-400 text-white text-[10px] font-bold flex items-center justify-center">
+                                    RA</div>
+                                <span class="text-xs font-bold text-gray-700">Rizky A. (Backend)</span>
+                                <button type="button" class="text-gray-400 hover:text-gray-600"><svg width="14"
+                                        height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                        stroke-width="2">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12">
+                                        </path>
+                                    </svg></button>
+                            </div>
+                            <!-- Member 3 -->
+                            <div class="bg-surface rounded-full pl-1.5 pr-3 py-1 flex items-center gap-2">
+                                <div
+                                    class="w-6 h-6 rounded-full bg-purple-400 text-white text-[10px] font-bold flex items-center justify-center">
+                                    MW</div>
+                                <span class="text-xs font-bold text-gray-700">Maya W. (QA)</span>
+                                <button type="button" class="text-gray-400 hover:text-gray-600"><svg width="14"
+                                        height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                        stroke-width="2">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12">
+                                        </path>
+                                    </svg></button>
+                            </div>
+
+                            <button type="button"
+                                class="bg-[#ccfbf1] text-[#0f766e] hover:bg-teal-200 transition-colors rounded-full px-4 py-1 flex items-center gap-1 text-xs font-bold">
+                                <span>+</span> Tambah
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 3 -->
+            <section>
+                <div class="flex items-center gap-2 text-brand-700 font-semibold text-sm mb-5">
+                    <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4">
+                        </path>
+                    </svg>
+                    3. PRIORITAS, KATEGORI & TARGET SPRINT
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-6">
+                    <div>
+                        <label class="block text-sm font-bold text-gray-700 mb-2">Tingkat Prioritas Proyek</label>
+                        <div class="flex p-1 bg-surface rounded-xl">
+                            <button type="button"
+                                class="flex-1 py-2 rounded-lg text-sm font-bold text-gray-500 hover:text-gray-700 flex items-center justify-center gap-2">
+                                <span class="w-2 h-2 rounded-full bg-red-500"></span> Urgent
+                            </button>
+                            <button type="button"
+                                class="flex-1 py-2 rounded-lg text-sm font-bold bg-brand-700 text-white shadow flex items-center justify-center gap-2">
+                                <span class="w-2 h-2 rounded-full bg-white"></span> High
+                            </button>
+                            <button type="button"
+                                class="flex-1 py-2 rounded-lg text-sm font-bold text-gray-500 hover:text-gray-700 flex items-center justify-center gap-2">
+                                <span class="w-2 h-2 rounded-full bg-gray-400"></span> Medium
+                            </button>
+                            <button type="button"
+                                class="flex-1 py-2 rounded-lg text-sm font-bold text-gray-500 hover:text-gray-700 flex items-center justify-center gap-2">
+                                <span class="w-2 h-2 rounded-full bg-gray-300"></span> Low
+                            </button>
+                        </div>
+                    </div>
 
                     <div>
-                        <div>
-                            <label for="projectManager">Penanggung Jawab (Project Manager) <span
-                                    aria-label="wajib">*</span></label>
-                            <span>Utama</span>
-                            <select id="projectManager" name="projectManager" required>
-                                <option value="sarah_maharani" selected>Sarah Maharani, PMP® - Lead Project Manager
-                                    (PMO)</option>
-                                <option value="bambang_wicaksono">Bambang Wicaksono, M.T. - CTO</option>
-                                <option value="ratna_kusuma">Ratna Kusuma Dewi, PMP - VP Engineering</option>
+                        <label class="block text-sm font-bold text-gray-700 mb-2">Kategori Portofolio</label>
+                        <div class="relative">
+                            <select
+                                class="w-full bg-surface px-4 py-3 rounded-xl border-none text-gray-800 font-bold text-sm appearance-none outline-none focus:ring-2 focus:ring-brand-500">
+                                <option>Cloud Infra & Single Sign-On</option>
+                                <option>GovTech Platform</option>
                             </select>
-                        </div>
-
-                        <div>
-                            <label for="teamMembers">Anggota Tim Inti Terpilih</label>
-                            <span id="teamCountBadge">3 Anggota</span>
-
-                            <fieldset>
-                                <legend>Pilih anggota tim</legend>
-
-                                <div>
-                                    <input type="checkbox" id="member_fp" name="teamMembers" value="fajar_p" checked />
-                                    <label for="member_fp">
-                                        <span>FP</span>
-                                        <span>Fajar P. (Infra)</span>
-                                    </label>
-                                    <button type="button" aria-label="Hapus Fajar P">✕</button>
-                                </div>
-
-                                <div>
-                                    <input type="checkbox" id="member_ra" name="teamMembers" value="rizky_a" checked />
-                                    <label for="member_ra">
-                                        <span>RA</span>
-                                        <span>Rizky A. (Backend)</span>
-                                    </label>
-                                    <button type="button" aria-label="Hapus Rizky A">✕</button>
-                                </div>
-
-                                <div>
-                                    <input type="checkbox" id="member_mw" name="teamMembers" value="maya_w" checked />
-                                    <label for="member_mw">
-                                        <span>MW</span>
-                                        <span>Maya W. (QA)</span>
-                                    </label>
-                                    <button type="button" aria-label="Hapus Maya W">✕</button>
-                                </div>
-
-                                <button type="button">
-                                    + Tambah Anggota
-                                </button>
-                            </fieldset>
-                        </div>
-                    </div>
-                </section>
-
-                <section>
-                    <h2>3. Prioritas, Kategori & Target Sprint</h2>
-
-                    <div>
-                        <div>
-                            <fieldset>
-                                <legend>Tingkat Prioritas Proyek</legend>
-
-                                <div>
-                                    <input type="radio" id="priority_urgent" name="priority" value="urgent" />
-                                    <label for="priority_urgent">
-                                        <span>●</span>
-                                        <span>Urgent</span>
-                                    </label>
-                                </div>
-
-                                <div>
-                                    <input type="radio" id="priority_high" name="priority" value="high" checked />
-                                    <label for="priority_high">
-                                        <span>●</span>
-                                        <span>High</span>
-                                    </label>
-                                </div>
-
-                                <div>
-                                    <input type="radio" id="priority_medium" name="priority" value="medium" />
-                                    <label for="priority_medium">
-                                        <span>●</span>
-                                        <span>Medium</span>
-                                    </label>
-                                </div>
-
-                                <div>
-                                    <input type="radio" id="priority_low" name="priority" value="low" />
-                                    <label for="priority_low">
-                                        <span>●</span>
-                                        <span>Low</span>
-                                    </label>
-                                </div>
-                            </fieldset>
-                        </div>
-
-                        <div>
-                            <label for="projectCategory">Kategori Portofolio</label>
-                            <select id="projectCategory" name="projectCategory">
-                                <option value="cloud_sso" selected>Cloud Infra & Single Sign-On</option>
-                                <option value="govtech">GovTech Platform & Layanan Publik</option>
-                                <option value="microservices">Microservices & API Integration</option>
-                                <option value="security">Cyber Security & ISO 27001 Audit</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div>
-                        <div>
-                            <label for="startDate">Tanggal Mulai</label>
-                            <input type="date" id="startDate" name="startDate" value="2025-04-01" />
-                        </div>
-
-                        <div>
-                            <label for="endDate">Target Peluncuran</label>
-                            <input type="date" id="endDate" name="endDate" value="2025-06-30" />
-                        </div>
-
-                        <div>
-                            <label for="sprintCount">Target Sprint</label>
-                            <input type="number" id="sprintCount" name="sprintCount" min="1" max="24" value="6" />
-                            <span>Sprint</span>
-                        </div>
-
-                        <div>
-                            <label for="manDays">Estimasi Beban</label>
-                            <input type="number" id="manDays" name="manDays" min="5" max="500" value="120" />
-                            <span>MD</span>
-                        </div>
-                    </div>
-                </section>
-
-                <section>
-                    <h2>4. Opsi Otomasi & Ekosistem GEMILANG</h2>
-                    <span>Smart Features</span>
-
-                    <div>
-                        <div>
-                            <div>🌳</div>
-                            <div>
-                                <strong>Aktifkan Rekomendasi Cerdas AI GEMILANG</strong>
-                                <p>Generate otomatis WBS, sub-tugas Kanban, dan deteksi potensi bottleneck sprint.</p>
+                            <div class="absolute inset-y-0 right-4 flex items-center pointer-events-none">
+                                <svg width="16" height="16" fill="none" stroke="currentColor" class="text-gray-500"
+                                    viewBox="0 0 24 24" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"></path>
+                                </svg>
                             </div>
                         </div>
-                        <div>
-                            <input type="checkbox" id="aiDecomposition" name="aiDecomposition" checked />
-                            <label for="aiDecomposition">Aktifkan</label>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <div>
+                        <label class="block text-sm font-bold text-gray-700 mb-2">Tanggal Mulai</label>
+                        <div class="flex items-center bg-surface px-3 py-2.5 rounded-xl">
+                            <svg width="18" height="18" class="text-brand-700 mr-2" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z">
+                                </path>
+                            </svg>
+                            <input type="text" value="01/04/2025"
+                                class="bg-transparent border-none w-full text-sm font-bold text-gray-800 outline-none" />
+                            <svg width="16" height="16" class="text-gray-400 ml-2" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z">
+                                </path>
+                            </svg>
                         </div>
                     </div>
-
                     <div>
-                        <div>
-                            <div>🔌</div>
+                        <label class="block text-sm font-bold text-gray-700 mb-2">Target Peluncuran</label>
+                        <div class="flex items-center bg-surface px-3 py-2.5 rounded-xl">
+                            <svg width="18" height="18" class="text-red-500 mr-2" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z">
+                                </path>
+                            </svg>
+                            <input type="text" value="30/06/2025"
+                                class="bg-transparent border-none w-full text-sm font-bold text-gray-800 outline-none" />
+                            <svg width="16" height="16" class="text-gray-400 ml-2" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z">
+                                </path>
+                            </svg>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-bold text-gray-700 mb-2">Target Sprint</label>
+                        <div class="flex items-center bg-surface px-3 py-2.5 rounded-xl">
+                            <svg width="18" height="18" class="text-purple-600 mr-2" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z">
+                                </path>
+                            </svg>
+                            <input type="text" value="6"
+                                class="bg-transparent border-none w-full text-sm font-bold text-gray-800 outline-none" />
+                            <span class="text-xs font-semibold text-gray-500">Sprint</span>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-bold text-gray-700 mb-2">Estimasi Beban</label>
+                        <div class="flex items-center bg-surface px-3 py-2.5 rounded-xl">
+                            <svg width="18" height="18" class="text-gray-500 mr-2" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            <input type="text" value="120"
+                                class="bg-transparent border-none w-full text-sm font-bold text-gray-800 outline-none" />
+                            <span class="text-xs font-semibold text-gray-500">MD</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 4 -->
+            <section class="mt-4">
+                <div class="flex items-center justify-between mb-4">
+                    <div class="flex items-center gap-2 text-gray-500 font-semibold text-sm">
+                        <svg width="18" height="18" class="text-purple-600" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z">
+                            </path>
+                        </svg>
+                        4. OPSI OTOMASI & EKOSISTEM GEMILANG
+                    </div>
+                    <span class="text-[11px] font-bold bg-purple-100 text-purple-700 px-3 py-1 rounded-full">Smart
+                        Features</span>
+                </div>
+
+                <div class="space-y-3">
+                    <!-- Toggle 1 -->
+                    <div class="flex items-center justify-between bg-surface px-5 py-4 rounded-2xl">
+                        <div class="flex items-center gap-4">
+                            <div class="text-purple-600 bg-white p-2 rounded-lg shadow-sm">
+                                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                    stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M14 10l-2 1m0 0l-2-1m2 1v2.5M20 7l-2 1m2-1l-2-1m2 1v2.5M14 4l-2-1-2 1M4 7l2-1M4 7l2 1M4 7v2.5M12 21l-2-1m2 1l2-1m-2 1v-2.5M6 18l-2-1v-2.5M18 18l2-1v-2.5">
+                                    </path>
+                                </svg>
+                            </div>
                             <div>
-                                <strong>Koneksi NestJS Webhook & Notifikasi Real-time</strong>
-                                <p>Stream commit repositori GitLab & CI/CD pipeline ke timeline log proyek.</p>
+                                <h4 class="text-sm font-bold text-gray-800">Aktifkan Rekomendasi Cerdas AI GEMILANG</h4>
+                                <p class="text-xs text-gray-500 mt-0.5 font-medium">Generate otomatis WBS, sub-tugas
+                                    Kanban, dan deteksi potensi bottleneck sprint.</p>
                             </div>
                         </div>
-                        <div>
-                            <input type="checkbox" id="nestjsWebhook" name="nestjsWebhook" checked />
-                            <label for="nestjsWebhook">Aktifkan</label>
+                        <div
+                            class="relative inline-block w-12 h-6 align-middle select-none transition duration-200 ease-in">
+                            <input type="checkbox" name="toggle1" id="toggle1" checked
+                                class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer border-brand-700 z-10 transition-all duration-300"
+                                style="right: 0;" />
+                            <label for="toggle1"
+                                class="toggle-label block overflow-hidden h-6 rounded-full bg-brand-700 cursor-pointer transition-colors duration-300"></label>
                         </div>
                     </div>
 
-                    <div>
-                        <div>
-                            <div>☁️</div>
+                    <!-- Toggle 2 -->
+                    <div class="flex items-center justify-between bg-surface px-5 py-4 rounded-2xl">
+                        <div class="flex items-center gap-4">
+                            <div class="text-gray-500 bg-white p-2 rounded-lg shadow-sm">
+                                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                    stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z">
+                                    </path>
+                                </svg>
+                            </div>
                             <div>
-                                <strong>Integrasi Widget Cuaca Maritim / Geo-Weather API</strong>
-                                <p>Kompensasi estimasi survei teknis lapangan berdasarkan prakiraan cuaca maritim
-                                    Jakarta.</p>
+                                <h4 class="text-sm font-bold text-gray-800">Koneksi NestJS Webhook & Notifikasi
+                                    Real-time</h4>
+                                <p class="text-xs text-gray-500 mt-0.5 font-medium">Stream commit repositori GitLab &
+                                    CI/CD pipeline ke timeline log proyek.</p>
                             </div>
                         </div>
-                        <div>
-                            <input type="checkbox" id="weatherApi" name="weatherApi" />
-                            <label for="weatherApi">Aktifkan</label>
+                        <div
+                            class="relative inline-block w-12 h-6 align-middle select-none transition duration-200 ease-in">
+                            <input type="checkbox" name="toggle2" id="toggle2" checked
+                                class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer border-brand-700 z-10 transition-all duration-300"
+                                style="right: 0;" />
+                            <label for="toggle2"
+                                class="toggle-label block overflow-hidden h-6 rounded-full bg-brand-700 cursor-pointer transition-colors duration-300"></label>
                         </div>
                     </div>
-                </section>
+                </div>
+            </section>
 
-                <aside id="aiSuccessAlert" hidden>
-                    <p>← AI merekomendasikan 4 milestone standar industri untuk cakupan SSO multi-tenant.</p>
-                    <button type="button" onclick="this.parentElement.hidden = true">✕</button>
-                </aside>
+            <!-- Actions Footer -->
+            <footer class="pt-2 flex items-center justify-between gap-4 border-t border-gray-100 mt-8">
+                <div class="flex gap-3">
+                    <button type="button"
+                        class="px-6 py-2.5 bg-white border border-gray-200 text-gray-700 text-sm font-bold rounded-xl hover:bg-gray-50 transition">
+                        Batal
+                    </button>
+                    <button type="button"
+                        class="px-6 py-2.5 bg-surface text-gray-600 text-sm font-bold rounded-xl flex items-center gap-2 hover:bg-gray-200 transition">
+                        <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M8 7H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-3m-1 4l-3 3m0 0l-3-3m3 3V4">
+                            </path>
+                        </svg>
+                        Simpan Draf
+                    </button>
+                </div>
+                <button type="button"
+                    class="px-6 py-3 bg-brand-700 text-white text-sm font-bold rounded-xl shadow-lg shadow-teal-900/20 hover:bg-brand-800 transition-all flex items-center gap-2">
+                    <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                    </svg>
+                    ✨ Buat & Inisialisasi Proyek
+                </button>
+            </footer>
 
-                <footer>
-                    <div>
-                        <button type="button" onclick="closeModal()">
-                            Batal
-                        </button>
-                        <button type="button" onclick="saveDraft()">
-                            💾 Simpan Draf
-                        </button>
-                    </div>
-                    <div>
-                        <button type="submit" id="btnSubmitProject">
-                            🚀 ✨ Buat & Inisialisasi Proyek
-                        </button>
-                    </div>
-                </footer>
-            </form>
-        </article>
-
-        <div id="projectToast" hidden>
-            <div>✓</div>
-            <div>
-                <strong id="toastTitle">Proyek Dibuat</strong>
-                <p id="toastDesc">PRJ-015 berhasil dikonfigurasi.</p>
-            </div>
-        </div>
+        </form>
     </main>
 
 </body>
