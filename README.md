@@ -13,9 +13,8 @@ GEMILANG juga dirancang dengan integrasi Artificial Intelligence (AI) untuk memb
 
 ## Screenshot UI
 
-![Screenshot 1](assets/screenshot/week-4/satu.png)
-![Screenshot 2](assets/screenshot/week-4/dua.png)
-![Screenshot 3](assets/screenshot/week-4/tiga.png)
+![Screenshot 1](assets/screenshot/week-5/satu.png)
+![Screenshot 2](assets/screenshot/week-5/dua.png)
 
 ---
 
