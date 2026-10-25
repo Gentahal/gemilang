@@ -1,27 +1,66 @@
 
-# GEMILANG
-### Gerbang Manajemen dan Integrasi Langkah Kerja
+# GEMILANG — TeamFlow
 
-**Manage Better, Work Smarter.**
+Aplikasi manajemen proyek dan kolaborasi tim berbasis web untuk membantu mengelola proyek, tugas, deadline, dan progres pekerjaan secara terstruktur.
 
-GEMILANG adalah aplikasi **Project Management System berbasis web** yang dirancang untuk membantu tim mengelola proyek dan pekerjaan secara terpusat, terstruktur, dan efisien.
+## 🖥️ Application Preview
 
-Aplikasi ini memungkinkan pengguna untuk membuat proyek, membagi tugas kepada anggota tim, menentukan prioritas dan deadline, serta memantau perkembangan pekerjaan melalui dashboard dan Kanban Board.
+Berikut adalah hasil render UI aplikasi GEMILANG:
 
-GEMILANG juga dirancang dengan integrasi Artificial Intelligence (AI) untuk membantu proses perencanaan dan pengelolaan pekerjaan agar menjadi lebih efektif.
+![GEMILANG UI Preview](./public/images/screenshot/satu.png)
 
----
+## ✨ Features
 
-## Overview
+- Project Management
+- Task Management
+- Deadline Tracking
+- Team Collaboration
+- Project Progress Dashboard
 
-Dalam pengerjaan sebuah proyek, pengelolaan tugas, pembagian tanggung jawab, deadline, dan monitoring progres merupakan hal penting untuk memastikan pekerjaan berjalan sesuai rencana.
+## 🛠️ Tech Stack
 
-GEMILANG hadir sebagai platform terintegrasi yang menyediakan berbagai kebutuhan manajemen proyek dalam satu aplikasi, sehingga setiap anggota tim dapat mengetahui tanggung jawab, status pekerjaan, dan perkembangan proyek secara transparan.
+- Frontend: React
+- Backend: NestJS
+- Authentication: JWT
+- Communication: AJAX
+- AI Integration
+- Deployment: Web Deployment
 
-Project ini dikembangkan sebagai bagian dari mata kuliah **Pemrograman Web**, dengan menerapkan berbagai teknologi web development modern mulai dari frontend, backend, database, REST API, authentication, hingga AI integration dan deployment.
+## 📂 Project Structure
 
----
+```text
+GEMILANG/
+├── gemilang-frontend/
+│   └── public/
+│       └── images/
+│           └── screenshot/
+│               └── satu.png
+├── README.md
+└── ...
+```
 
-## Update
+## 🚀 Getting Started
 
-Dalam Pengerjaan progres pengweb ini cek branch readme untuk melihat progres yang sudah di update *Terimakasi*
+Clone repository:
+
+```bash
+git clone <repository-url>
+cd <project-directory>
+```
+
+Install dependencies:
+
+```bash
+cd gemilang-frontend
+npm install
+```
+
+Run the development server:
+
+```bash
+npm run dev
+```
+
+## 👨‍💻 Development
+
+GEMILANG TeamFlow dikembangkan sebagai proyek untuk mendukung pengelolaan proyek, pembagian tugas, dan pemantauan progres kerja tim.
