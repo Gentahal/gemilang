@@ -1,16 +1,66 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# GEMILANG — TeamFlow
 
-Currently, two official plugins are available:
+Aplikasi manajemen proyek dan kolaborasi tim berbasis web untuk membantu mengelola proyek, tugas, deadline, dan progres pekerjaan secara terstruktur.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🖥️ Application Preview
 
-## React Compiler
+Berikut adalah hasil render UI aplikasi GEMILANG:
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+![GEMILANG UI Preview](./public/images/screenshot/satu.png)
 
-## Expanding the ESLint configuration
+## ✨ Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- Project Management
+- Task Management
+- Deadline Tracking
+- Team Collaboration
+- Project Progress Dashboard
+
+## 🛠️ Tech Stack
+
+- Frontend: React
+- Backend: NestJS
+- Authentication: JWT
+- Communication: AJAX
+- AI Integration
+- Deployment: Web Deployment
+
+## 📂 Project Structure
+
+```text
+GEMILANG/
+├── gemilang-frontend/
+│   └── public/
+│       └── images/
+│           └── screenshot/
+│               └── satu.png
+├── README.md
+└── ...
+```
+
+## 🚀 Getting Started
+
+Clone repository:
+
+```bash
+git clone <repository-url>
+cd <project-directory>
+```
+
+Install dependencies:
+
+```bash
+cd gemilang-frontend
+npm install
+```
+
+Run the development server:
+
+```bash
+npm run dev
+```
+
+## 👨‍💻 Development
+
+GEMILANG TeamFlow dikembangkan sebagai proyek untuk mendukung pengelolaan proyek, pembagian tugas, dan pemantauan progres kerja tim.
