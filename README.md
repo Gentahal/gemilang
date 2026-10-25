@@ -7,7 +7,7 @@ Aplikasi manajemen proyek dan kolaborasi tim berbasis web untuk membantu mengelo
 
 Berikut adalah hasil render UI aplikasi GEMILANG:
 
-![GEMILANG UI Preview](./public/images/screenshot/satu.png)
+![GEMILANG UI Preview](gemilang-frontend/public/images/screenshot/satu.png)
 
 ## ✨ Features
 
