@@ -5,6 +5,7 @@ import DashboardStats from "./components/DashboardStats";
 import ProjectList from "./components/ProjectList";
 import ProjectForm from "./components/ProjectForm";
 import AiAssistantWidget from "./components/AiAssistantWidget";
+import ExternalTaskSync from "./components/ExternalTaskSync";
 import ActivityLog from "./components/ActivityLog";
 import WeatherWidget from "./components/WeatherWidget";
 
@@ -202,6 +203,9 @@ export default function App() {
                 {/* 5. Komponen AI Assistant Staging Widget */}
                 <AiAssistantWidget />
               </div>
+
+              {/* Section Konsumsi REST API Eksternal (GET, Loading/Error/Success, Render List, & POST) */}
+              <ExternalTaskSync />
 
               {/* Bottom Section: Activity Log & External Weather API */}
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
